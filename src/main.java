@@ -23,10 +23,10 @@ public class main {
 			for (WatchEvent<?> event : watchKey.pollEvents()) {
 				Path arquivo = (Path) event.context();
 				if (arquivo.endsWith(".dat")) {
-					String endereco = "C:\\Users\\HenriqueFaveroBitten\\data\\in\\" + arquivo;
+					String endereco = "%HOME_PATH%\\data\\in\\" + arquivo;
 					System.out.println(endereco);
 					relatorio rel = new relatorio(endereco);
-					endereco = "C:\\Users\\HenriqueFaveroBitten\\data\\out\\" + arquivo;
+					endereco = "%HOME_PATH%\\data\\out\\" + arquivo;
 					rel.emiteRelatorio(endereco);
 				}else System.out.println("NAO É UM .DAT");
 			}
