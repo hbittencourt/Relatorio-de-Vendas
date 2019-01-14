@@ -22,11 +22,13 @@ public class main {
 
 			for (WatchEvent<?> event : watchKey.pollEvents()) {
 				Path arquivo = (Path) event.context();
-				String endereco = "C:\\Users\\HenriqueFaveroBitten\\data\\in\\" + arquivo;
-				System.out.println(endereco);
-				relatorio rel = new relatorio(endereco);
-				endereco = "C:\\Users\\HenriqueFaveroBitten\\data\\out\\" + arquivo;
-				rel.emiteRelatorio(endereco);
+				if (arquivo.endsWith(".dat")) {
+					String endereco = "C:\\Users\\HenriqueFaveroBitten\\data\\in\\" + arquivo;
+					System.out.println(endereco);
+					relatorio rel = new relatorio(endereco);
+					endereco = "C:\\Users\\HenriqueFaveroBitten\\data\\out\\" + arquivo;
+					rel.emiteRelatorio(endereco);
+				}else System.out.println("NAO É UM .DAT");
 			}
 		}
 
