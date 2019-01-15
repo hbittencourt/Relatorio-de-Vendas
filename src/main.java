@@ -30,6 +30,7 @@ public class main {
 					relatorio rel = new relatorio(endereco);
 					endereco = caminho + "\\data\\out\\" + arquivo;
 					rel.emiteRelatorio(endereco);
+					rel.limpaArquivos();
 				}
 			}
 		}

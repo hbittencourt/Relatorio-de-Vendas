@@ -145,4 +145,11 @@ public class relatorio {
 		}
 	}
 
+	public void limpaArquivos() {
+		lVendas.clear();
+		lVendedores.clear();
+		lClientes.clear();
+		
+	}
+
 }
