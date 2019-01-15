@@ -13,8 +13,9 @@ public class main {
 	public static void main(String[] args) throws IOException {
 
 		WatchService watchService = FileSystems.getDefault().newWatchService();
+		String caminho = System.getProperty("user.dir");
 
-		Path diretorio = Paths.get("C:\\Users\\HenriqueFaveroBitten\\data\\in\\");
+		Path diretorio = Paths.get(caminho + "\\data\\in");
 
 		WatchKey watchKey = diretorio.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
 
@@ -22,13 +23,14 @@ public class main {
 
 			for (WatchEvent<?> event : watchKey.pollEvents()) {
 				Path arquivo = (Path) event.context();
-				if (arquivo.endsWith(".dat")) {
-					String endereco = "%HOME_PATH%\\data\\in\\" + arquivo;
-					System.out.println(endereco);
+				String nArquivo = arquivo.toString();
+
+				if (nArquivo.endsWith(".dat")) {
+					String endereco = diretorio + "\\" + arquivo;
 					relatorio rel = new relatorio(endereco);
-					endereco = "%HOME_PATH%\\data\\out\\" + arquivo;
+					endereco = caminho + "\\data\\out\\" + arquivo;
 					rel.emiteRelatorio(endereco);
-				}else System.out.println("NAO É UM .DAT");
+				}
 			}
 		}
 
