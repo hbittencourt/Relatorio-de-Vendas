@@ -61,11 +61,12 @@ public class relatorio {
 			byte[] ascii = linha.getBytes(StandardCharsets.UTF_8);
 			if (ascii[0] == -17 && ascii[1] == -69 && ascii[2] == -65) {
 
-				ascii = Arrays.copyOfRange(ascii, 3, ascii.length - 3);
+				ascii = Arrays.copyOfRange(ascii, 3, ascii.length);
 			}
 			;
 
 			linha = new String(ascii, "UTF-8");
+			
 
 			while (linha != null) {
 
