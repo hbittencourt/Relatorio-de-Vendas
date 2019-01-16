@@ -63,7 +63,7 @@ public class relatorio {
 
 				ascii = Arrays.copyOfRange(ascii, 3, ascii.length);
 			}
-			;
+			
 
 			linha = new String(ascii, "UTF-8");
 			
